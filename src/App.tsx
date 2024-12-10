@@ -1,22 +1,15 @@
-import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import Auth from "./components/Auth";
 
-type Props = {
-  name: string;
-  age: number;
-};
-
-// interface Props1 {
-//   name: string;
-//   age: number;
-// }
-
-const App: React.FC<Props> = ({ name, age }) => {
+const App = () => {
   return (
-    <div>
-      Name:{name}
-      <br />
-      Age:{age}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard name="Shivanand" age={26} />} />
+        <Route path="/auth" element={<Auth  />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
